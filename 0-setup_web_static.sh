@@ -7,22 +7,22 @@ if [ ! -x /usr/sbin/nginx ]; then
     sudo apt-get -y install nginx
 fi
 
-mkdir -p /data/web_static/releases/
-mkdir -p /data/web_static/shared/
-mkdir -p /data/web_static/releases/test/
+sudo mkdir -p /data/web_static/releases/
+sudo mkdir -p /data/web_static/shared/
+sudo mkdir -p /data/web_static/releases/test/
 
-touch /data/web_static/releases/test/index.html
+sudo touch /data/web_static/releases/test/index.html
 echo "Hello World" > /data/web_static/releases/test/index.html
 
 if [ -f "/data/web_static/current" ]; then
-    rm /data/web_static/current
-    ln -sf /data/web_static/releases/test/ /data/web_static/current
+    sudo rm /data/web_static/current
+    sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
 else
-    ln -sf /data/web_static/releases/test/ /data/web_static/current
+    sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
 fi
 
-chown -R ubuntu:ubuntu /data/
-chgrp -R ubuntu /data/
-sed -i "38i \ \tlocation /hbnb_static {\n\t\talias /data/web_static/current/;\n\t}" /etc/nginx/sites-available/default
+sudo chown -R ubuntu:ubuntu /data/
+sudo chgrp -R ubuntu /data/
+sudo sed -i "38i \ \tlocation /hbnb_static {\n\t\talias /data/web_static/current/;\n\t}" /etc/nginx/sites-available/default
 
-service nginx restart
+sudo service nginx restart
