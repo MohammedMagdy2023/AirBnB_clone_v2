@@ -22,16 +22,11 @@ def c_is(text):
     return f"C {ntext}"
 
 
-@app.route("/python/", defaults={'text': 'is cool'}, strict_slashes=False)
+@app.route('/python/', defaults={'text': 'is cool'}, strict_slashes=False)
 @app.route("/python/<text>", strict_slashes=False)
 def python_is(text):
     ntext = text.replace("_", " ")
     return f"Python {ntext}"
-
-
-@app.route("/number/<int:n>", strict_slashes=False)
-def hello_number(n):
-    return f"{n} is a number"
 
 
 if __name__ == "__main__":
