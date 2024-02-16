@@ -16,14 +16,14 @@ def hello_hbnb():
     return "HBNB"
 
 
-@app.route("/c/<text>", , strict_slashes=False)
+@app.route("/c/<text>", strict_slashes=False)
 def c_is(text):
     ntext = text.replace("_", " ")
     return f"C {ntext}"
 
 
 @app.route('/python/', defaults={'text': 'is cool'}, strict_slashes=False)
-@app.route("/python/<text>", , strict_slashes=False)
+@app.route("/python/<text>", strict_slashes=False)
 def python_is(text):
     ntext = text.replace("_", " ")
     return f"Python {ntext}"
