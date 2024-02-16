@@ -31,7 +31,7 @@ def python_is(text):
 
 @app.route('/number/<n>', strict_slashes=False)
 def show_number(n):
-    if n > 0:
+    if n.isdigit():
         return f"{n} is a number"
 
 
