@@ -14,7 +14,7 @@ def states_list():
 
 
 @app.teardown_appcontext()
-def end_of_app():
+def end_of_app(resp_or_exc):
     storage.close()
 
 
