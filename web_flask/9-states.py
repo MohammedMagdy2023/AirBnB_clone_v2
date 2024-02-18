@@ -8,13 +8,18 @@ app = Flask(__name__)
 
 
 @app.route("/cities_by_states", strict_slashes=False)
-def cities_by_state():
+@app.route('/states/<state_id>', strict_slashes=False)
+def statesState():
+    """Display a list of states in the database."""
     states = storage.all("State")
-    return render_template("8-cities_by_states.html", states=states)
+    if state_id is not None:
+        state_id = 'State.' + state_id
+    return render_template('9-states.html', states=states, state_id=state_id)
 
 
 @app.teardown_appcontext
 def teardown(exc):
+    """Remove the current SQLAlchemy session."""
     storage.close()
 
 
