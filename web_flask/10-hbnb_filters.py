@@ -8,11 +8,13 @@ from models import storage
 app = Flask(__name__)
 
 
-@app.route("/cities_by_states", strict_slashes=False)
-def cities_by_state():
-    """Display a list of states in the database."""
+@app.route('/hbnb_filters', strict_slashes=False)
+def webHost():
+    """hosts the HTML content for the HBNB project."""
     states = storage.all("State").values()
-    return render_template("8-cities_by_states.html", states=states)
+    amenities = storage.all("Amenity").values()
+    return render_template('10-hbnb_filters.html', states=states,
+                           amenities=amenities)
 
 
 @app.teardown_appcontext
