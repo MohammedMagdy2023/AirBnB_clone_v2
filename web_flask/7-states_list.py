@@ -1,4 +1,4 @@
-#!/usr/bin/pyhon3
+#!/usr/bin/python3
 """
 Flask Web Application for the AirBNB project
 """
